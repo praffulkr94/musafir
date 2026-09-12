@@ -1,0 +1,60 @@
+.place-map,
+.place-map-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.place-map-canvas {
+  background: var(--color-surface-soft);
+}
+
+.place-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2.5px solid var(--color-canvas);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.place-marker::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  background: rgba(255, 56, 92, 0.18);
+  z-index: -1;
+}
+
+/* MapLibre chrome themed to the system. */
+.maplibregl-ctrl-group {
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-float) !important;
+  overflow: hidden;
+}
+
+.maplibregl-ctrl-group button {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--color-hairline-soft) !important;
+}
+
+.maplibregl-ctrl-attrib {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  color: var(--color-muted) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-radius: var(--radius-xs) 0 0 0 !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--color-muted) !important;
+}
+
+.maplibregl-canvas:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}

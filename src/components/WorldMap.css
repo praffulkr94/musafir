@@ -1,0 +1,29 @@
+.world-map,
+.world-map-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.world-map-canvas {
+  background: var(--color-canvas);
+}
+
+.world-map.is-static {
+  pointer-events: none;
+}
+
+.world-map-tip {
+  position: absolute;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translate(14px, calc(-100% - 12px));
+  animation: none;
+}
+
+.world-map-tip-title {
+  font-weight: 600;
+}
+
+.world-map-tip-sub {
+  opacity: 0.8;
+}

@@ -1,0 +1,110 @@
+.places-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-section) var(--space-lg);
+  text-align: center;
+  border: 1px dashed var(--color-hairline);
+  border-radius: var(--radius-md);
+}
+
+.places-empty .btn {
+  margin-top: var(--space-md);
+}
+
+.places-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-hairline-soft);
+}
+
+.place-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-base) var(--space-sm);
+  border-bottom: 1px solid var(--color-hairline-soft);
+  border-radius: 12px;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.place-row:hover {
+  background: var(--color-surface-soft);
+}
+
+.place-row-thumb {
+  position: relative;
+  display: block;
+  height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.place-row-text {
+  min-width: 0;
+}
+
+.place-row-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The title link covers the whole row for a big click target; the buttons sit above it. */
+.place-row-title::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.place-row-title:focus-visible {
+  outline: none;
+}
+
+.place-row-title:focus-visible::after {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
+.place-row-dates {
+  margin-top: var(--space-sm);
+}
+
+.place-row-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.place-row-actions .icon-btn {
+  margin-left: var(--space-sm);
+}
+
+@media (max-width: 743px) {
+  .place-row {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: var(--space-base);
+  }
+
+  .place-row-thumb {
+    height: 80px;
+  }
+
+  .place-row-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .place-row-actions .icon-btn {
+    margin-left: auto;
+  }
+}
