@@ -1,4 +1,12 @@
-import type { AttributionControlOptions } from 'maplibre-gl'
+import { setWorkerUrl, type AttributionControlOptions } from 'maplibre-gl'
+// MapLibre resolves its worker at runtime as `new URL('./maplibre-gl-worker.mjs',
+// import.meta.url)`, which no bundler can see — so in a production build nothing emits
+// the file and the request 404s (behind an SPA rewrite it comes back as index.html, and
+// the module fails MIME checks). Hand MapLibre a URL Vite has actually built instead:
+// `?worker&url` bundles the worker with the shared chunk it imports and returns its path.
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+
+setWorkerUrl(maplibreWorkerUrl)
 
 /** OpenFreeMap's light "Positron" style — muted greys that let Rausch highlights carry. */
 export const MAP_STYLE_URL = 'https://tiles.openfreemap.org/styles/positron'
